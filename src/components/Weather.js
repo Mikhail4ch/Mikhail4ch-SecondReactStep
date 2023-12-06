@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import mockAPI from '../api/mockapi';
 
 const Weather = () => {
   const [temperature, setTemperature] = useState('');
 
   useEffect(() => {
-    axios.get('https://api.openweathermap.org/data/2.5/weather?q=Stavanger&appid=YOUR_API_KEY')
+    mockAPI.get('https://api.openweathermap.org/data/2.5/weather?q=Stavanger&appid=487bd2b7ddd4e28e7439b5e014ce104e')
       .then(response => {
         const kelvinTemperature = response.data.main.temp;
         const celsiusTemperature = kelvinTemperature - 273.15;
